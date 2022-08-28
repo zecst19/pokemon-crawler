@@ -1,12 +1,5 @@
 # pokemon-crawler
  
-# endpoint where u can input name of pokemon and we see if it exists in pokeapi, if yes store in db
-
-# endpoint that gets random pokemon with rarity odds (common: 53.78,uncommon: 32, rare: 12, very rare: 2, extremely rare: 0.2, legendary: 0.02)
-
-# endpoint that returns all existing pokemon in db, ordered by #: /pokedex
-# /pokedex/<type>
-# /pokedex/<number>
-# /pokedex/<name>
-
-# unit tests for endpoints
+- /pokedex/ : GET endpoint that returns all discoverd pokemon so far
+- /pokedex/<name> : POST endpoint that adds new pokemon to the DB if it's a valid name
+- /encounter/ : POST endpoint that generates an encounter with a random pokemon and adds it to the pokedex
