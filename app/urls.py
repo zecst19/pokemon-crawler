@@ -13,9 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from posixpath import basename
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls import url, include
+from rest_framework import routers
+from .views.Pokemon import PokemonViewSet
+
+router = routers.DefaultRouter()
+router.register(r'pokedex', PokemonViewSet, basename='Pokedex')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^', include(router.urls)),
+    url(r'encounter', PokemonViewSet.as_view({'post': 'encounter'})),
 ]
